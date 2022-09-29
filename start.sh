@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-yarn run start
+npm run start

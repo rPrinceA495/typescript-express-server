@@ -1,16 +1,22 @@
-export class CurrencyConversion {
+export default class CurrencyConversion {
     private _baseCurrency: string;
     private _conversionAmount: Number;
+    private _targetCurrency: string;
     private _ratesObject: { [key:string]: Number };
 
-    constructor(baseCurrency?: string) {
+    constructor(baseCurrency: string, targetCurrency: string, conversionAmount: Number) {
+        this._conversionAmount = conversionAmount;
+        this._targetCurrency = targetCurrency;
         this._baseCurrency = baseCurrency || "USD";
-        this._conversionAmount = 0;
         this._ratesObject = {};
     }
 
     public get baseCurrency() : string {
         return this._baseCurrency;
+    }
+
+    public get targetCurrency() : string {
+        return this._targetCurrency;
     }
 
     public get conversionAmount() : Number {
@@ -25,6 +31,10 @@ export class CurrencyConversion {
         this._baseCurrency= baseCurrency;
     }
 
+    public set targetCurrency(targetCurrency: string) {
+        this._targetCurrency= targetCurrency;
+    }
+
     public set conversionAmount(conversionAmount: Number) {
         this._conversionAmount= conversionAmount;
     }
@@ -33,7 +43,7 @@ export class CurrencyConversion {
         this._ratesObject= ratesObject;
     }
   
-    announce() {
-      return `Hi my name is ${this._baseCurrency}`
+    convert() : Number {
+      return Number(this._conversionAmount) * Number(this._ratesObject[this._targetCurrency]);
     }
   }

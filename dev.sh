@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-yarn run dev
+npm run dev

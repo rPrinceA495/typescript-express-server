@@ -1,7 +1,5 @@
-import { CurrencyConversion } from './models/CurrencyConversion';
 import express, {Request, Response, NextFunction, Application} from 'express';
 import {Server} from 'http';
-
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -12,6 +10,7 @@ import currencyConversionRouter from './routers/currencyConversionRouter'
 
 const app: Application = express();
 
+app.use(express.json());
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.json("Backend service reached.")

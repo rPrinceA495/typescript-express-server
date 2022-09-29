@@ -3,7 +3,7 @@ import { getCurrencyConversion } from '../controllers/currencyConversionControll
 
 const currencyConversionRouter: Application = express();
 
-currencyConversionRouter.get('/', getCurrencyConversion)
+currencyConversionRouter.post('/', getCurrencyConversion)
 
 export default currencyConversionRouter;
 
