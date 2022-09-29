@@ -1,3 +1,4 @@
+import { CurrencyConversion } from './models/CurrencyConversion';
 import express, {Request, Response, NextFunction, Application} from 'express';
 import {Server} from 'http';
 
@@ -7,6 +8,8 @@ dotenv.config();
 
 import {notFoundError, errorHandler} from './middleware/error-handler'
 
+import currencyConversionRouter from './routers/currencyConversionRouter'
+
 const app: Application = express();
 
 
@@ -14,9 +17,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.json("Backend service reached.")
 })
 
-app.get('/currency-conversion', (req: Request, res: Response, next: NextFunction) => {
-    res.json("Backend service reached.")
-})
+app.use('/currency-conversion', currencyConversionRouter)
 
 // Use error handling milleware:
 app.use(notFoundError)
