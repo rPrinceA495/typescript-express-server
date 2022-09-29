@@ -1,5 +1,4 @@
-import express, {Request, Response, NextFunction, Application} from 'express';
-import {Server} from 'http';
+import express, { Request, Response, NextFunction, Application } from 'express';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -23,7 +22,7 @@ app.use(notFoundError)
 app.use(errorHandler)
 
 // Configure server to listen for requests
-const port: Number = Number(process.env.PORT) || 8000;
-const server: Server = app.listen(port, () => {
+const port: Number = Number(process.env.PORT) || 3000;
+app.listen(port, () => {
   console.log(`Application server is running at http://localhost:${port}`);
 });

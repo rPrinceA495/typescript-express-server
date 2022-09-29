@@ -1,0 +1,6 @@
+dist
+.yarn
+node_modules
+**/*.sh
+**/*.js.map
+**/*.spec.*

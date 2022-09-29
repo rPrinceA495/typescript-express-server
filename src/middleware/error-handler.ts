@@ -1,4 +1,4 @@
-import express, {Request, Response, NextFunction, Application, ErrorRequestHandler} from 'express';
+import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 import createHttpError, { HttpError } from 'http-errors';
 
 export const notFoundError = (req: Request, res: Response, next: NextFunction) => {
