@@ -2,7 +2,16 @@ version: '3.0'
 services:
   app:
     container_name: app
-    restart: unless-stopped
+    restart: always
     build: ./
     ports:
       - 3000:3000
+
+  alpine-sqs:
+    image: roribio16/alpine-sqs:latest
+    container_name: alpine-sqs
+    ports:
+      - "9324:9324"
+      - "9325:9325"
+    stdin_open: true
+    tty: true
